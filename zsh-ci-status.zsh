@@ -1,7 +1,7 @@
 function callback() {
   NEXT_CI_STATUS=$3
 
-  zle-reset-prompt
+  zle reset-prompt
 }
 
 function main() {
@@ -11,11 +11,11 @@ function main() {
     local ci=$(hub -C $1 ci-status)
     
     if [[ $ci == "success" ]]; then
-      print "%{$fg[green]%}$ci %{$reset_color%}"
+      print "%{$fg[green]%} %{$reset_color%}"
     elif [[ $ci == "failure" ]]; then
-      print "%{$fg[red]%}$ci %{$reset_color%}"
+      print "%{$fg[red]%} %{$reset_color%}"
     else
-      print "%{$fg[yellow]%}$ci %{$reset_color%}"
+      print "%{$fg[yellow]%} %{$reset_color%}"
     fi
   fi
 }
