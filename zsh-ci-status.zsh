@@ -11,11 +11,11 @@ function ci_status_main() {
     local ci=$(hub -C $1 ci-status)
     
     if [[ $ci == "success" ]]; then
-      print "%{$fg[green]%} %{$reset_color%}"
+      print "%{$fg[green]%} %{$reset_color%}"
     elif [[ $ci == "failure" ]]; then
-      print "%{$fg[red]%} %{$reset_color%}"
+      print "%{$fg[red]%} %{$reset_color%}"
     else
-      print "%{$fg[yellow]%} %{$reset_color%}"
+      print "%{$fg[yellow]%} %{$reset_color%}"
     fi
   fi
 }
