@@ -1,10 +1,10 @@
-function callback() {
+function ci_status_callback() {
   NEXT_CI_STATUS=$3
 
   zle reset-prompt
 }
 
-function main() {
+function ci_status_main() {
   local git=$(git -C $1 rev-parse --is-inside-work-tree 2> /dev/null)
 
   if [[ $git == true ]]; then
@@ -23,6 +23,6 @@ function main() {
 function ci_status() {
   async_init
   async_start_worker ci_status_worker -n
-  async_register_callback ci_status_worker callback
-  async_job ci_status_worker main $1
+  async_register_callback ci_status_worker ci_status_callback
+  async_job ci_status_worker ci_status_main $1
 }
