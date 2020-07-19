@@ -9,11 +9,11 @@ function ci_status_main() {
 
   if [[ $git == true ]]; then
     local ci=$(hub -C $1 ci-status)
-    
+
     if [[ $ci == "success" ]]; then
-      print "%{$fg[green]%} %{$reset_color%}"
+      print "%{$fg[green]%} %{$reset_color%}"
     elif [[ $ci == "failure" ]]; then
-      print "%{$fg[red]%} %{$reset_color%}"
+      print "%{$fg[red]%} %{$reset_color%}"
     else
       print "%{$fg[yellow]%} %{$reset_color%}"
     fi
